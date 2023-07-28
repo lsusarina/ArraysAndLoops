@@ -1,5 +1,6 @@
 import {guiConfirm, guiPrompt} from './talking.js';
 
+
 export async function initScene (scene) {
     scene.clearColor = new BABYLON.Color3(0.8, 0.85, 0.95);
     let camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -20), scene);
@@ -10,6 +11,12 @@ export async function initScene (scene) {
     const m=new BABYLON.GridMaterial('grid',scene);
     m.mainColor = new BABYLON.Color3(0.5,0.5,0.5);
     ground.material=m;
+
+    // for (let i=0; i<15; i++){
+    //     console.log("log " + i);
+    // }
+
+    const columnBulk = await BABYLON.SceneLoader.ImportMash(null, " ./models/", "column.glb", scene);
 
     scene.executeWhenReady(()=>{
         whenReady();
