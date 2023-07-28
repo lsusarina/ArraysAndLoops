@@ -22,7 +22,10 @@ export async function initScene (scene) {
 
     const columnCount = 10; //количество колонн, которые мы создаем
     const corner = Math.PI * 2 / columnCount; //угол для расположения колонн по кругу
-    const radius = 8;
+    const radius = 8; //радиус для расположения
+    
+    // --------------- Коридор колонн начало ----------------
+
     for (let i=0; i<columnCount; i++){
         const columnClone = column.clone();
         columnClone.position.x = i*2;
@@ -33,6 +36,10 @@ export async function initScene (scene) {
         columnClone.position.x = i*2;
         columnClone.position.z = 8;
     }
+
+    // --------------- Коридор колонн конец -----------------
+
+    // --------------- Круг из колонн начало ----------------
 
     // for (let i = 0; i < columnCount; i++){
     //     const columnClone = column.clone();
@@ -58,11 +65,11 @@ export async function initScene (scene) {
 
     // }
 
+    // --------------- Круг из колонн конец ------------------
+
     scene.executeWhenReady(()=>{
         whenReady();
     });
-
-    
 }
 
 
